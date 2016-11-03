@@ -50,10 +50,44 @@ app.post('/facebook', function(req, res) {
     // res.sendStatus(401);
   }
   console.log(req.body);
+  
+  
+    messaging_events = req.body.entry[0].messaging;
+    for (i = 0; i < messaging_events.length; i++) {
+        event = req.body.entry[0].messaging[i];
+        sender = event.sender.id;
+        if (event.message && event.message.text) {
+            text = event.message.text;
+            // Your Logic Replaces the following Line
+            sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
+        }
+    }
+    
 
   // Process the Facebook updates here
   res.sendStatus(200);
 });
+
+function sendTextMessage(sender, text) {
+    messageData = {
+        text:text
+    }
+    request({
+        url: 'https://graph.facebook.com/v2.6/me/messages',
+        qs: {access_token:app.get('page_access_token')},
+        method: 'POST',
+        json: {
+            recipient: {id:sender},
+            message: messageData,
+        }
+    }, function(error, response, body) {
+        if (error) {
+            console.log('Error sending message: ', error);
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error);
+        }
+    });
+}
 
 app.post('/instagram', function(req, res) {
   console.log('Instagram request body:');
