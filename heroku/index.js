@@ -4,7 +4,7 @@
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
-
+*/
 
 var bodyParser = require('body-parser');
 var express = require('express');
@@ -63,8 +63,8 @@ app.post('/instagram', function(req, res) {
 });
 
 app.listen();
-*/
 
+/*
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -126,4 +126,4 @@ function sendTextMessage(sender, text) {
 
 app.listen(app.get('port'), function() {
     console.log('Node app is running on port', app.get('port'));
-});
+});*/
