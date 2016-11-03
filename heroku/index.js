@@ -59,7 +59,7 @@ app.post('/facebook', function(req, res) {
         if (event.message && event.message.text) {
             text = event.message.text;
             // Your Logic Replaces the following Line
-            sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
+            sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200),req);
         }
     }
     
@@ -68,7 +68,7 @@ app.post('/facebook', function(req, res) {
   res.sendStatus(200);
 });
 
-function sendTextMessage(sender, text) {
+function sendTextMessage(sender, text,request) {
     messageData = {
         text:text
     }
