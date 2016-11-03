@@ -11,6 +11,11 @@ var express = require('express');
 var app = express();
 var xhub = require('express-x-hub');
 
+
+const bodyParser = require('body-parser');
+const request = require('request');
+const net = require('net');
+
 app.set('port', (process.env.PORT || 5000));
 app.listen(app.get('port'));
 
@@ -60,14 +65,14 @@ app.post('/facebook', function(req, res) {
             text = event.message.text;
             // Your Logic Replaces the following Line
           
-             messageData = {text:text.substring(0, 200)}
-    req({
+            // messageData = {text:text.substring(0, 200)}
+    request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: {access_token:app.get('page_access_token')},
+        qs: {access_token:app.get('EAACEdEose0cBAF400zMX6lZB7Xl3DVjwxZAa82v2mrV8ifJZC7p2NxTLFRvGk5MBQUHgGNq4mMYRSUdKK483nLLdnLZAZBssn0uZBTVD3x6TJ9kXn27TqqMRrtAoCLVktUtpzMZBhQMNPTOrIdA0tT4F6PZAHKjHX2FoxdqPtCvrYyTmELtsZBJqL')},
         method: 'POST',
         json: {
             recipient: {id:sender},
-            message: messageData,
+            message: {text:text.substring(0, 200)},
         }
     }, function(error, response, body) {
         if (error) {
