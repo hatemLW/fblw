@@ -68,7 +68,7 @@ app.post('/facebook', function(req, res) {
             // messageData = {text:text.substring(0, 200)}
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: {access_token:app.get('EAACEdEose0cBAF400zMX6lZB7Xl3DVjwxZAa82v2mrV8ifJZC7p2NxTLFRvGk5MBQUHgGNq4mMYRSUdKK483nLLdnLZAZBssn0uZBTVD3x6TJ9kXn27TqqMRrtAoCLVktUtpzMZBhQMNPTOrIdA0tT4F6PZAHKjHX2FoxdqPtCvrYyTmELtsZBJqL')},
+        qs: {access_token:app.get(process.env.PAT)},
         method: 'POST',
         json: {
             recipient: {id:sender},
