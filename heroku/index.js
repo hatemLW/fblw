@@ -12,7 +12,7 @@ var app = express();
 var xhub = require('express-x-hub');
 
 
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 const request = require('request');
 const net = require('net');
 
