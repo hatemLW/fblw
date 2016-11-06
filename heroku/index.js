@@ -56,7 +56,7 @@ app.post('/facebook', function(req, res) {
   }
   console.log(req.body);
   
-  
+  /*
     messaging_events = req.body.entry[0].messaging;
     for (i = 0; i < messaging_events.length; i++) {
         event = req.body.entry[0].messaging[i];
@@ -86,7 +86,7 @@ app.post('/facebook', function(req, res) {
          //  sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200),req);
         }
     }
-    
+    */
 
   // Process the Facebook updates here
   res.sendStatus(200);
