@@ -11,8 +11,8 @@ var express = require('express');
 var app = express();
 var xhub = require('express-x-hub');
 
-var request = require('request');
-var net = require('net');
+//var request = require('request');
+//var net = require('net');
 
 app.set('port', (process.env.PORT || 5000));
 app.listen(app.get('port'));
