@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var request = require('request');
+//var request = require('request');
 
 app.use(bodyParser.json());
 
@@ -23,7 +23,7 @@ app.get('/facebook', function (req, res) {
 
 app.post('/facebook/', function (req, res) {
     console.log (req.body);
-    messaging_events = req.body.entry[0].messaging;
+   /* messaging_events = req.body.entry[0].messaging;
     for (i = 0; i < messaging_events.length; i++) {
         event = req.body.entry[0].messaging[i];
         sender = event.sender.id;
@@ -32,10 +32,10 @@ app.post('/facebook/', function (req, res) {
             // Your Logic Replaces the following Line
             sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
         }
-    }
+    }*/
     res.sendStatus(200);
 });
-
+/*
 function sendTextMessage(sender, text) {
     messageData = {
         text:text
@@ -55,7 +55,7 @@ function sendTextMessage(sender, text) {
             console.log('Error: ', response.body.error);
         }
     });
-}
+}*/
 
 app.listen(app.get('port'), function() {
     console.log('Node app is running on port', app.get('port'));
