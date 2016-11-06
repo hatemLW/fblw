@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
         res.send('It Works! Follow FB Instructions to activate.');
 });
 
-app.get('/webhook', function (req, res) {
+app.get('/facebook', function (req, res) {
     if (req.query['hub.verify_token'] === app.get('verify_token')) {
         res.send(req.query['hub.challenge']);
     } else {
@@ -21,7 +21,7 @@ app.get('/webhook', function (req, res) {
     }
 });
 
-app.post('/webhook/', function (req, res) {
+app.post('/facebook/', function (req, res) {
     console.log (req.body);
     messaging_events = req.body.entry[0].messaging;
     for (i = 0; i < messaging_events.length; i++) {
