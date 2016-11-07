@@ -23,16 +23,17 @@ app.get('/facebook', function (req, res) {
 
 app.post('/facebook/', function (req, res) {
     console.log (req.body);
-   /* messaging_events = req.body.entry[0].messaging;
+   messaging_events = req.body.entry[0].messaging;
     for (i = 0; i < messaging_events.length; i++) {
         event = req.body.entry[0].messaging[i];
         sender = event.sender.id;
         if (event.message && event.message.text) {
             text = event.message.text;
             // Your Logic Replaces the following Line
-            sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
+                console.log ("hatem:"+text);
+            //sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
         }
-    }*/
+    }/* */
     res.sendStatus(200);
 });
 /*
