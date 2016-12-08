@@ -11,6 +11,19 @@ app.set('page_access_token', (process.env.PAGE_ACCESS_TOKEN || 'NULL'));
 
 app.get('/', function (req, res) {
         res.send('It Works! Follow FB Instructions to activate.');
+        try
+        {
+                var request = require('request');
+request('http://www.google.com', function (error, response, body) {
+  if (!error && response.statusCode == 200) {
+    console.log(body) // Show the HTML for the Google homepage. 
+  }
+})
+        }
+        catch(e)
+        {
+                console.log(e)
+        }
 });
 
 app.get('/facebook', function (req, res) {
