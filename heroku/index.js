@@ -11,6 +11,7 @@ app.set('page_access_token', (process.env.PAGE_ACCESS_TOKEN || 'NULL'));
 
 app.get('/', function (req, res) {
         res.send('It Works! Follow FB Instructions to activate.');
+        console.log('It Works!')
         try
         {
                 var request = require('request');
